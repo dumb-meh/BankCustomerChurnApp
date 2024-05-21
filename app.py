@@ -16,9 +16,11 @@ all_mappings = {
 
 st.set_page_config(page_title='Bank Customer Churn Prediction' )
 # Load the image
-image = Image.open('cover.png')
-# Display the image covering the whole screen
-st.image(image, use_column_width=True)
+background_image = Image.open('cover.png')
+st.markdown(
+    f'<style>body {{ background-image: url("{background_image.filename}"); background-repeat: no-repeat; background-size: cover; }}</style>',
+    unsafe_allow_html=True
+)
 st.title('Churn Prediction')
 
 # Function to predict churn
