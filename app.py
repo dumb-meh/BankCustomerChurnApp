@@ -44,7 +44,7 @@ def predict_churn(CreditScore, age, Tenure, Balance, Salary, Gender, Geography, 
 
     # Make prediction
     prediction = model.predict(input_data)[0]
-    return prediction
+    return "Yes, Customer will Churn" if prediction == 1 else "No, Customer will not Churn"
 
 # Input form
 st.header('Enter Customer Details')
