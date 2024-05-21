@@ -14,18 +14,28 @@ all_mappings = {
     'Number of Products': {'1': 1, '2': 2, '3': 3, '4': 4},
 }
 
-st.set_page_config(page_title='Bank Customer Churn Prediction' )
+
+st.set_page_config(page_title='Bank Customer Churn Prediction')
+
+# Load background image
 background_image = Image.open('cover.png')
+
+# Apply background image using HTML/CSS
 page_bg_img = f"""
 <style>
 [data-testid="stAppViewContainer"] {{
-    background-image: url("{background_image.filename}");
+    background-image: url("{background_image.url}");
     background-size: cover;
 }}
 </style>
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
+
+# Title
 st.title('Churn Prediction')
+
+# Your Streamlit app code goes here
+
 
 # Function to predict churn
 def predict_churn(CreditScore, age, Tenure, Balance, Salary, Gender, Geography, Credit_Card, Member, Products):
