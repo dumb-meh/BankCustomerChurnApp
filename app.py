@@ -2,11 +2,10 @@ import streamlit as st
 import pickle
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import MinMaxScaler
+
 
 # Load the trained model
 model = pickle.load(open('Model_RF.pkl', 'rb'))
-scaler = MinMaxScaler()
 
 # Title
 st.title('Churn Prediction')
@@ -14,10 +13,6 @@ image = Image.open('cover.png')
 st.image(image, '')
 # Function to predict churn
 def predict_churn(CreditScore, age, Tenure, Balance, Salary, Gender, Geography, Credit_Card, Member, Products):
-    # Normalize input features
-    normalized_values = scaler.transform([[CreditScore, Balance, Salary]])
-    CreditScore, Balance, Salary = normalized_values[0]
-
     # Prepare input data
     input_data = pd.DataFrame({
         'CreditScore': [CreditScore],
