@@ -13,14 +13,12 @@ all_mappings = {
     'Is Active Member': {'Yes': 1, 'No': 0},
     'Number of Products': {'1': 1, '2': 2, '3': 3, '4': 4},
 }
-
-st.set_page_config(page_title='Bank Customer Churn Prediction' )
+image = Image.open('cover.png')
+st.set_page_config(page_title='Bank Customer Churn Prediction',background_image=image )
 # Load the image
-background_image = Image.open('cover.png')
-st.markdown(
-    f'<style>body {{ background-image: url("{background_image.filename}"); background-repeat: no-repeat; background-size: cover; }}</style>',
-    unsafe_allow_html=True
-)
+
+# Display the image covering the whole screen
+# st.image(image, use_column_width=True)
 st.title('Churn Prediction')
 
 # Function to predict churn
