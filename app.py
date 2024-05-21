@@ -1,4 +1,4 @@
-!pip install scikit-learn
+pip install scikit-learn
 import streamlit as st
 import pickle
 import pandas as pd
