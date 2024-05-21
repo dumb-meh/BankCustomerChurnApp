@@ -15,7 +15,31 @@ all_mappings = {
     'Is Active Member': {'Yes': 1, 'No': 0},
     'Number of Products': {'1': 1, '2': 2, '3': 3, '4': 4},
 }
+def prediction(CreditScore, age, Tenure, Balance, Salary, Gender, Geography, Credit_Card, Member, Products):
+    # Map string values to numerical values
+    Gender = all_mappings['Gender'][Gender]
+    Geography = all_mappings['Geography'][Geography]
+    Credit_Card = all_mappings['Has Credit Card'][Credit_Card]
+    Member = all_mappings['Is Active Member'][Member]
+    Products = all_mappings['Number of Products'][Products]
 
+    # Prepare input data
+    input_data = pd.DataFrame({
+        'CreditScore': [CreditScore],
+        'Age': [age],
+        'Tenure': [Tenure],
+        'Balance': [Balance],
+        'EstimatedSalary': [Salary],
+        'Gender': [Gender],
+        'Geography': [Geography],
+        'HasCrCard': [Credit_Card],
+        'IsActiveMember': [Member],
+        'NumOfProducts': [Products]
+    })
+
+    # Make prediction
+    prediction = model.predict(input_data)[0]
+    return "Yes, Customer will Churn" if prediction == 1 else "No, Customer will not Churn"
 # Function to preprocess input data
 def preprocess_input(data):
     encoder = LabelEncoder()
@@ -60,7 +84,7 @@ Member = st.selectbox('Is Active Member', ['Yes', 'No'])
 Products = st.selectbox('Number of Products', ['1', '2', '3', '4'])
 
 if st.button('Predict'):
-    prediction = predict_churn(CreditScore, age, Tenure, Balance, Salary, Gender, Geography, Credit_Card, Member, Products)
+    prediction = prediction(CreditScore, age, Tenure, Balance, Salary, Gender, Geography, Credit_Card, Member, Products)
     st.subheader('Prediction:')
     st.write(prediction)
 
