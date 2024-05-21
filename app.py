@@ -22,25 +22,9 @@ all_mappings = {
 
 st.set_page_config(page_title='Bank Customer Churn Prediction')
 
-# Load background image
-background_image = Image.open('cover.png')
-
-# Convert image to data URL
-data_url = base64.b64encode(background_image.tobytes()).decode('utf-8')
-background_image_style = f'data:image/png;base64,{data_url}'
-
-# Apply background image using HTML/CSS
-page_bg_img = f"""
-<style>
-[data-testid="stAppContainer"] {{
-    background-image: url("{background_image_style}");
-    background-size: cover;
-}}
-</style>
-"""
-st.markdown(page_bg_img, unsafe_allow_html=True)
-
-# Title
+image = Image.open('cover.png')
+# Display the image covering the whole screen
+st.image(image)
 st.title('Churn Prediction')
 
 # Your Streamlit app code goes here
