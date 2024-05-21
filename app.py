@@ -56,7 +56,7 @@ def predict_churn(input_data):
 # Function to generate prediction and update dataframe
 def generate_prediction_and_update_df(df):
     prediction = predict_churn(df)
-    df['Prediction'] = prediction
+    df['Prediction'] = df.apply(lambda row: "Yes" if row['Prediction'] == 1 else "No", axis=1)
     return df
 
 # Function to download dataframe as CSV
