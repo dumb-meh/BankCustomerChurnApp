@@ -95,6 +95,8 @@ uploaded_file = st.file_uploader('Upload your CSV file here', type='csv')
 if uploaded_file is not None:
     # Read uploaded CSV file into DataFrame
     df = pd.read_csv(uploaded_file)
+    
+    df.drop(['RowNumber', 'CustomerId', 'Surname'], axis=1, inplace=True)
 
     # Display uploaded DataFrame
     st.subheader('Uploaded DataFrame')
