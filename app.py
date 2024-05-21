@@ -14,7 +14,7 @@ all_mappings = {
     'Number of Products': {'1': 1, '2': 2, '3': 3, '4': 4},
 }
 
-st.set_page_config(page_title='Bank Customer Churn Prediction',background_image=image )
+st.set_page_config(page_title='Bank Customer Churn Prediction' )
 background_image = Image.open('cover.png')
 page_bg_img = f"""
 <style>
