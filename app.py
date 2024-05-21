@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 import joblib
 import pandas as pd
 from PIL import Image
@@ -15,14 +16,26 @@ all_mappings = {
 }
 
 
+
+
+
+
 st.set_page_config(page_title='Bank Customer Churn Prediction')
 
-page_bg_img = """
+# Load background image
+background_image = Image.open('cover.png')
+
+# Convert image to data URL
+data_url = base64.b64encode(background_image.tobytes()).decode('utf-8')
+background_image_style = f'data:image/png;base64,{data_url}'
+
+# Apply background image using HTML/CSS
+page_bg_img = f"""
 <style>
-[data-testid="stAppViewContainer"]{
-background-image: url("https://miro.medium.com/v2/resize:fit:720/format:webp/0*8Iu_eymr6eR-YuQw");
-background-size: cover;
-}
+[data-testid="stAppContainer"] {{
+    background-image: url("{background_image_style}");
+    background-size: cover;
+}}
 </style>
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
@@ -31,6 +44,7 @@ st.markdown(page_bg_img, unsafe_allow_html=True)
 st.title('Churn Prediction')
 
 # Your Streamlit app code goes here
+
 
 
 # Function to predict churn
