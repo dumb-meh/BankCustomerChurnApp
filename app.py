@@ -17,16 +17,12 @@ all_mappings = {
 
 st.set_page_config(page_title='Bank Customer Churn Prediction')
 
-# Load background image
-background_image = Image.open('cover.png')
-
-# Apply background image using HTML/CSS
-page_bg_img = f"""
+page_bg_img = """
 <style>
-[data-testid="stAppViewContainer"] {{
-    background-image: url("{background_image.url}");
-    background-size: cover;
-}}
+[data-testid="stAppViewContainer"]{
+background-image: url("https://miro.medium.com/v2/resize:fit:720/format:webp/0*8Iu_eymr6eR-YuQw");
+background-size: cover;
+}
 </style>
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
