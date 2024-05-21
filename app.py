@@ -14,10 +14,12 @@ all_mappings = {
     'Number of Products': {'1': 1, '2': 2, '3': 3, '4': 4},
 }
 
-# Title
+st.set_page_config(page_title='Bank Customer Churn Prediction', page_icon=None, layout='wide', initial_sidebar_state='auto')
 st.title('Churn Prediction')
+# Load the image
 image = Image.open('cover.png')
-st.image(image, '')
+# Display the image covering the whole screen
+st.image(image, use_column_width=True)
 
 # Function to predict churn
 def predict_churn(CreditScore, age, Tenure, Balance, Salary, Gender, Geography, Credit_Card, Member, Products):
