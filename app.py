@@ -15,17 +15,10 @@ all_mappings = {
 }
 
 st.set_page_config(page_title='Bank Customer Churn Prediction', page_icon=None, layout='wide', initial_sidebar_state='auto')
-st.markdown(
-    f"""
-    <style>
-        .reportview-container {{
-            background: url(data:image/png;base64,{background_image}) center;
-            background-size: cover;
-        }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# Load the image
+image = Image.open('cover.png')
+# Display the image covering the whole screen
+st.image(image, use_column_width=True)
 st.title('Churn Prediction')
 
 # Function to predict churn
