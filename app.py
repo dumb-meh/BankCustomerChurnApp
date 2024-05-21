@@ -1,5 +1,4 @@
 import streamlit as st
-import base64
 import joblib
 import pandas as pd
 from PIL import Image
