@@ -1,11 +1,9 @@
 import streamlit as st
-import pickle
+import joblib
 import pandas as pd
-import numpy as np
 from PIL import Image
 
-# Load the trained model
-model = pickle.load(open('Model_RF.pkl', 'rb'))
+model = joblib.load('Model_RF.pkl')
 
 # Title
 st.title('Churn Prediction')
